@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body class="main-content">
+  <main class="wrapper">
+    <form class="control">
+      <section class="control__row">
+        <div class="control__col">
+          <label class="control__label"># of TAs</label>
+          <p class="control_info">
+            The # of grading TAs, the app will do it's best to offload extra students fairly
+          </p>
+          <input class="control__input" id="taCount" type="number" value="1" min="1">
+        </div>
+        <div class="control__col">
+          <label class="control__label">Random Seed</label>
+          <p class="control_info">
+            This random seed is used to generate a random list use the same seed to get the same lists
+          </p>
+          <input class="control__input" id="seed" type="text" max="25" required value="r3p1ac3m3">
+        </div>
+        <button type="button" id="runShuffle" class="btn">Shuffle!</button>
+      </section>
+    </form>
+    <section id="studentLists" class="student-list"></section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/seedrandom@2.4.4/seedrandom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/shuffle-seed@1.1.6/shuffle-seed.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/kyanite@0.9.2/dist/kyanite.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

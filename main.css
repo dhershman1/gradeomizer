@@ -1,0 +1,199 @@
+
+:root {
+  --primary: rgb(152, 224, 156);
+  --main-txt: rgb(44, 48, 46);
+  --sub-txt: rgb(207, 207, 207);
+  --border: rgb(224, 224, 224);
+  --secondary-bg: rgb(146, 201, 177);
+}
+
+/* Primary Setup */
+body,
+html {
+  height: 100%;
+}
+
+html {
+  background: url(background.png)
+}
+
+body {
+  margin: 0;
+  color: var(--main-txt);
+  background: rgba(43, 89, 148, 0.5) linear-gradient(143deg,
+  rgba(54, 65, 86, 0.5), rgba(17, 75, 95, 0.5), rgba(43, 89, 148, 0.5));
+}
+
+/* END Primary Setup */
+
+/* Primary Grid Setup */
+.main-content {
+  height: 100%;
+  display: grid;
+  grid-template-areas: 'form form'
+                       'main main'
+                       'foot foot';
+  grid-template-rows: 64px 1fr auto;
+  grid-template-columns: 10% 90%;
+}
+
+form {
+  grid-area: form;
+  width: 100%;
+}
+
+main {
+  grid-area: main;
+  width: 100%;
+  height: 100%;
+  /* overflow: auto; */
+}
+
+footer {
+  grid-area: foot;
+  padding: 0.5rem 1rem;
+}
+/* END Grid Setup */
+
+/* List Setup */
+
+.student-list {
+  display: flex;
+  margin: auto;
+  width: 90%;
+}
+
+.namelist {
+  display: inline-block;
+  height: 100%;
+  width: 20%;
+  text-align: center;
+  /* margin: 0.5rem 0.2rem 0 0.2rem; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.6rem;
+  border: 2px solid var(--primary);
+  background-color: var(--primary);
+  border-radius: 0.35rem;
+}
+
+/* END List Setup */
+
+/* Input Styles */
+.control {
+  display: flex;
+  width: 90%;
+  margin: auto;
+}
+
+.control__row {
+  margin: auto;
+  justify-content: center;
+}
+
+.control__col {
+  justify-content: center;
+  width: 40%;
+  padding: 0 0.3rem 0 0.3rem;
+  height: 100%;
+  display: inline-block;
+}
+
+.control__label {
+  color: var(--dark);
+  font-weight: 600;
+  padding: 0.3rem 0.3rem 0 0;
+  display: block;
+}
+
+.control__info {
+  font-size: 12px;
+  color: rgb(207, 207, 207);
+  display: block;
+}
+
+.control__input {
+  margin-top: 0.5rem;
+  width: 95%;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.control__input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 .2rem var(--secondary-bg);
+}
+
+.control__btn {
+  width: 10%;
+  padding: 0.5rem;
+
+}
+
+.control__btn:hover {
+  background-color: var(--secondary-bg);
+}
+
+/* END Input Styles */
+
+/* Btn Styles */
+
+.btn {
+  font-size: 20px;
+  padding: 0.3rem 0.75rem;
+  margin: 0;
+  border-width: 0;
+  border-color: transparent;
+  border-radius: 0.25rem;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  font-family: inherit;
+  z-index: 0;
+  border: none;
+  background: var(--secondary-bg);
+  color: var(--main-txt);
+  -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+  transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+
+.btn:before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.25rem;
+  background: var(--main-txt);
+  content: '';
+  opacity: 0;
+  -webkit-transition: opacity 0.15s ease-out, -webkit-transform 0.15s ease-out;
+  transition: opacity 0.15s ease-out, -webkit-transform 0.15s ease-out;
+  transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+  transition: transform 0.15s ease-out, opacity 0.15s ease-out, -webkit-transform 0.15s ease-out;
+  z-index: -1;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+}
+
+.btn:hover,
+.btn:focus {
+  box-shadow: 0 1px 8px rgba(58,51,53,0.3);
+  color: var(--primary);
+  -webkit-transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
+  transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+.btn:hover:before,
+.btn:focus:before {
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease-in, -webkit-transform 0.2s ease-in;
+  transition: opacity 0.2s ease-in, -webkit-transform 0.2s ease-in;
+  transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+  transition: transform 0.2s ease-in, opacity 0.2s ease-in, -webkit-transform 0.2s ease-in;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+/* END Btn Styles */
