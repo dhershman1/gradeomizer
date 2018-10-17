@@ -19,4 +19,4 @@ Probably nothing, however some key points might be
 - A better way of getting a list of students
 - Maybe display previous seeds (they are recorded just not displayed on screen)
 - A button to pool all of those users githubs to maybe make grading a bit faster??
-- Idk something else I'm sure that could make life easier. ¯\_(ツ)_/¯
+- Idk something else I'm sure that could make life easier. `¯\_(ツ)_/¯`
