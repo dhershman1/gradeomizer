@@ -132,8 +132,14 @@ const clear = el => {
   }
 }
 
+const byVal = K.prop(['value'])
+
+// Sometimes inputs stay put upon refresh, let's make sure those are given to our state
+store.mutations.setSeed(store.state, byVal(document.getElementById('seed')))
+store.mutations.setTACount(store.state, byVal(document.getElementById('taCount')))
+
 // Build listener events to keep state up to date
-document.getElementById('taCount').addEventListener('change', ({ target }) =>
+document.getElementById('taCount').addEventListener('input', ({ target }) =>
   store.mutations.setTACount(store.state, target.value))
 
 document.getElementById('seed').addEventListener('input', ({ target }) =>
@@ -143,10 +149,45 @@ document.getElementById('runShuffle').addEventListener('click', () => {
   const listData = generateShuffledLists(store)
   const listEl = document.getElementById('studentLists')
 
-  console.log(listData)
-
   clear(listEl)
 
-  listData.forEach((students, i) =>
-    listEl.appendChild(createStuList(i + 1, students)))
+  listData.forEach((students, i) => {
+    const stuEl = createStuList(i + 1, students)
+
+    K.branch(
+      K.compose(K.lt(4), K.length),
+      () => stuEl.classList.add('namelist--partial'),
+      K.branch(
+        K.compose(K.lt(3), K.length),
+        () => stuEl.classList.add('namelist--half'),
+        K.identity
+      ),
+      listData
+    )
+
+    listEl.appendChild(stuEl)
+
+    // if (K.compose(K.lt(3), K.length, listData)) {
+    //   stuEl.classList.add('namelist--partial')
+    // }
+  })
+
+  // K.pipe([
+  //   K.when(K.compose(K.gt(2), K.length), )
+  // ])
+
+  // K.branch(
+  //   K.compose(K.gt(1), K.length),
+  //   data => {
+  //     data.forEach((students, i) =>
+  //       listEl.appendChild(createStuList(i + 1, students)))
+  //   },
+  //   data => {
+  //     const stuEl = createStuList(1, data[0])
+
+  //     stuEl.classList.add('namelist--full')
+  //     listEl.appendChild(stuEl)
+  //   },
+  //   listData
+  // )
 })
