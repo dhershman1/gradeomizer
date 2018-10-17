@@ -166,28 +166,5 @@ document.getElementById('runShuffle').addEventListener('click', () => {
     )
 
     listEl.appendChild(stuEl)
-
-    // if (K.compose(K.lt(3), K.length, listData)) {
-    //   stuEl.classList.add('namelist--partial')
-    // }
   })
-
-  // K.pipe([
-  //   K.when(K.compose(K.gt(2), K.length), )
-  // ])
-
-  // K.branch(
-  //   K.compose(K.gt(1), K.length),
-  //   data => {
-  //     data.forEach((students, i) =>
-  //       listEl.appendChild(createStuList(i + 1, students)))
-  //   },
-  //   data => {
-  //     const stuEl = createStuList(1, data[0])
-
-  //     stuEl.classList.add('namelist--full')
-  //     listEl.appendChild(stuEl)
-  //   },
-  //   listData
-  // )
 })
