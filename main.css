@@ -77,6 +77,21 @@ footer {
   border-radius: 0.35rem;
 }
 
+.namelist--half {
+  width: 50%;
+}
+
+.namelist--partial {
+  width: 30%;
+}
+
+.namelist--full p,
+.namelist--partial p,
+.namelist--half p {
+  display: inline-block;
+  margin: 0.5rem;
+}
+
 /* END List Setup */
 
 /* Input Styles */
@@ -171,8 +186,6 @@ footer {
   opacity: 0;
   -webkit-transition: opacity 0.15s ease-out, -webkit-transform 0.15s ease-out;
   transition: opacity 0.15s ease-out, -webkit-transform 0.15s ease-out;
-  transition: transform 0.15s ease-out, opacity 0.15s ease-out;
-  transition: transform 0.15s ease-out, opacity 0.15s ease-out, -webkit-transform 0.15s ease-out;
   z-index: -1;
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
@@ -190,8 +203,6 @@ footer {
   opacity: 1;
   -webkit-transition: opacity 0.2s ease-in, -webkit-transform 0.2s ease-in;
   transition: opacity 0.2s ease-in, -webkit-transform 0.2s ease-in;
-  transition: transform 0.2s ease-in, opacity 0.2s ease-in;
-  transition: transform 0.2s ease-in, opacity 0.2s ease-in, -webkit-transform 0.2s ease-in;
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
 }
